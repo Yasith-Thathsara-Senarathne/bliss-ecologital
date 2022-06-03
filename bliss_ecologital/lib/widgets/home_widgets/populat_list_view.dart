@@ -5,26 +5,34 @@ import 'package:flutter/material.dart';
 class PopularListView extends StatelessWidget {
   final List<dynamic> productList;
 
+  final ValueChanged<ProductModel> onTapped;
+
   const PopularListView({
     Key? key,
     required this.productList,
+    required this.onTapped,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 18),
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: productList.length,
-        itemBuilder: (context, index) {
-          final _productModel = productList[index] as ProductModel;
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: productList.length,
+      itemBuilder: (context, index) {
+        final _productModel = productList[index] as ProductModel;
 
-          return PopularListTile(
-            productModel: _productModel,
-          );
-        },
-      ),
+        return Padding(
+          padding: const EdgeInsets.only(left: 18),
+          child: InkWell(
+            onTap: () {
+              onTapped(_productModel);
+            },
+            child: PopularListTile(
+              productModel: _productModel,
+            ),
+          ),
+        );
+      },
     );
   }
 }

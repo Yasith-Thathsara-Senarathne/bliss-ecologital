@@ -11,4 +11,6 @@ abstract class AppTexts {
   static const byCategoryNormal = 'By Category';
 
   static const mostPopularNormal = 'Most Popular';
+
+  static const loadingNormal = 'Loading';
 }

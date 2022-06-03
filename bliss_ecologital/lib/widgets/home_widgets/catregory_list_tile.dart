@@ -15,9 +15,9 @@ class CategoryListTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(
         vertical: 20,
-        horizontal: 8,
+        horizontal: 10,
       ),
-      margin: const EdgeInsets.only(right: 15),
+      margin: const EdgeInsets.only(right: 18),
       decoration: BoxDecoration(
         color: categoryUIModel.categoryBGColor,
         borderRadius: BorderRadius.circular(25),

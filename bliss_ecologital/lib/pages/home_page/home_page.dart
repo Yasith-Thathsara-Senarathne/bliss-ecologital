@@ -1,12 +1,12 @@
 import 'package:bliss_ecologital/constants/app_colors.dart';
 import 'package:bliss_ecologital/constants/app_font_sizes.dart';
 import 'package:bliss_ecologital/constants/app_texts.dart';
-import 'package:bliss_ecologital/models/ui_models/category_ui_model.dart';
 import 'package:bliss_ecologital/pages/home_page/home_controller.dart';
 import 'package:bliss_ecologital/widgets/home_widgets/category_list_view.dart';
 import 'package:bliss_ecologital/widgets/home_widgets/home_app_bar.dart';
 import 'package:bliss_ecologital/widgets/home_widgets/populat_list_view.dart';
 import 'package:bliss_ecologital/widgets/home_widgets/search_text_field.dart';
+import 'package:bliss_ecologital/widgets/loading_widgets/loading_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -80,13 +80,18 @@ class _HomePageState extends State<HomePage> {
                   height: 30,
                 ),
                 Obx(
-                  () => SizedBox(
-                    // this is to define a height for the category carousal
-                    height: Get.width * 0.17,
-                    child: CategoryListView(
-                      categoryList: _controller.categoryList.value,
-                    ),
-                  ),
+                  () => _controller.categoryLoading.value
+                      ? const LoadingView()
+                      : SizedBox(
+                          // this is to define a height for the category carousal
+                          height: Get.width * 0.17,
+                          child: CategoryListView(
+                            categoryList: _controller.categoryList.value,
+                            onTapped: (value) {
+                              print('implement category on tapped.');
+                            },
+                          ),
+                        ),
                 ),
               ],
             ),
@@ -112,14 +117,15 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Obx(
                   () => _controller.productLoading.value
-                      ? const CircularProgressIndicator.adaptive(
-                          backgroundColor: AppColors.pacificBlue,
-                        )
+                      ? const LoadingView()
                       : SizedBox(
                           // this is to define a height for the category carousal
                           height: Get.width * 0.6,
                           child: PopularListView(
                             productList: _controller.productList.value,
+                            onTapped: (value) {
+                              _controller.onProductTapped(value);
+                            },
                           ),
                         ),
                 ),

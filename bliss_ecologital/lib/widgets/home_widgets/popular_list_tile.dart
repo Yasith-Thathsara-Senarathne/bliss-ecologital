@@ -20,7 +20,7 @@ class PopularListTile extends StatelessWidget {
         vertical: 10,
         horizontal: 10,
       ),
-      margin: const EdgeInsets.only(right: 30),
+      margin: const EdgeInsets.only(right: 18),
       decoration: BoxDecoration(
         color: productModel.category.detailBGColor,
         borderRadius: BorderRadius.circular(25),
@@ -54,7 +54,6 @@ class PopularListTile extends StatelessWidget {
             height: Get.width * 0.4,
             color: productModel.category.detailBGColor,
             colorBlendMode: BlendMode.darken,
-            scale: 4.0,
           ),
         ],
       ),
