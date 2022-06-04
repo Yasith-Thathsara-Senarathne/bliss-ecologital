@@ -1,5 +1,10 @@
 import 'package:bliss_ecologital/models/data_models/product_model.dart';
+import 'package:bliss_ecologital/pages/product_page/product_controller.dart';
 import 'package:bliss_ecologital/utilities/extensions.dart';
+import 'package:bliss_ecologital/widgets/product_widgets/cart_button.dart';
+import 'package:bliss_ecologital/widgets/product_widgets/favorite_button.dart';
+import 'package:bliss_ecologital/widgets/product_widgets/product_image.dart';
+import 'package:bliss_ecologital/widgets/product_widgets/product_info.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,55 +17,56 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   // varibales
+  final _controller = Get.put(ProductController());
+
   final _productModel = Get.arguments as ProductModel;
 
   @override
   Widget build(BuildContext context) {
     final _appBar = AppBar(
       backgroundColor: _productModel.category.detailBGColor,
-      actions: const [
-        Icon(
+      actions: [
+        const Icon(
           Icons.share,
+          color: Colors.white,
           size: 30,
         ),
-        SizedBox(
+        const SizedBox(
           width: 20,
         ),
-        Icon(
-          Icons.favorite,
-          size: 30,
+        Obx(
+          () => FavoriteButton(
+            isAddedToFavorites: _controller.isAddedToFavorites.value,
+            onTapped: () {
+              _controller.handleFavoriteTap(_productModel);
+            },
+          ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 20,
         ),
-        Icon(
-          Icons.shopping_cart,
-          size: 30,
+        Obx(
+          () => CartButton(
+            cartCount: _controller.cartCount.value,
+            onTapped: () {},
+          ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 18,
         ),
       ],
     );
 
     final _body = Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(
-            top: 30,
-            left: 18,
-            right: 18,
-          ),
-          child: Center(
-            child: Image.network(
-              _productModel.image,
-              fit: BoxFit.fitHeight,
-              // height: Get.width * 0.7,
-              color: _productModel.category.detailBGColor,
-              colorBlendMode: BlendMode.darken,
-            ),
-          ),
+        ProductImage(productModel: _productModel),
+        ProductInfo(
+          productModel: _productModel,
+          onAddToCart: () {
+            _controller.handleAddToCart(_productModel);
+          },
         ),
       ],
     );

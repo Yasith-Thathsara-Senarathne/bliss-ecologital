@@ -49,6 +49,6 @@ class ProductModel {
       };
 
   String get priceToString {
-    return 'Rs ${price.toStringAsFixed(2)}';
+    return price.toStringAsFixed(2);
   }
 }

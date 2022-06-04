@@ -13,4 +13,14 @@ abstract class AppTexts {
   static const mostPopularNormal = 'Most Popular';
 
   static const loadingNormal = 'Loading';
+
+  static const brandNormal = 'Brand';
+
+  static const priceNormal = 'Price';
+
+  static const colorNormal = 'Color';
+
+  static const weightNormal = 'Weight';
+
+  static const addToCartNormal = 'Add to Cart';
 }

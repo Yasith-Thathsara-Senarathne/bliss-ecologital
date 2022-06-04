@@ -17,20 +17,29 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     categoryList.clear();
+
     productList.clear();
+
+    categoryLoading.value = false;
+
     super.onInit();
   }
 
   @override
   void onReady() {
     _loadData();
+
     super.onReady();
   }
 
   @override
   void onClose() {
     categoryList.clear();
+
     productList.clear();
+
+    categoryLoading.value = false;
+
     super.onClose();
   }
 

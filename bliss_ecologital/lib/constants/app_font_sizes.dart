@@ -8,4 +8,6 @@ abstract class AppFontSizes {
   static const body = 16.0;
 
   static const smallBody = 14.0;
+
+  static const button = 20.0;
 }

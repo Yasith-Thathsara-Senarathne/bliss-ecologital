@@ -18,4 +18,6 @@ abstract class AppColors {
   static const perfumePiano = Color(0xFFACB5FA);
 
   static const apricotPeach = Color(0xFFFAD0AC);
+
+  static const torchRed = Color(0xFFFF071F);
 }
