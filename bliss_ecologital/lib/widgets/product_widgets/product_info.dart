@@ -10,11 +10,14 @@ import 'package:get/get.dart';
 class ProductInfo extends StatelessWidget {
   final ProductModel productModel;
 
+  final bool addedToCart;
+
   final VoidCallback onAddToCart;
 
   const ProductInfo({
     Key? key,
     required this.productModel,
+    required this.addedToCart,
     required this.onAddToCart,
   }) : super(key: key);
 
@@ -38,8 +41,10 @@ class ProductInfo extends StatelessWidget {
             productModel: productModel,
           ),
           ButtonWithText(
-            title: AppTexts.addToCartNormal,
-            bgColor: AppColors.pacificBlue,
+            title: addedToCart
+                ? AppTexts.removeFromCartNormal
+                : AppTexts.addToCartNormal,
+            bgColor: addedToCart ? AppColors.torchRed : AppColors.pacificBlue,
             height: 45,
             fontSize: AppFontSizes.button,
             onTapped: () {

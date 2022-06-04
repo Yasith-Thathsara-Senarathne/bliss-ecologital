@@ -116,6 +116,15 @@ class HomeController extends GetxController {
     }
   }
 
+  void onCategoryTapped(CategoryUIModel categoryUIModel) {
+    try {
+      Get.toNamed(
+        Routes.productCategoryPage,
+        arguments: categoryUIModel,
+      );
+    } catch (exception) {}
+  }
+
   void onProductTapped(ProductModel productModel) {
     try {
       Get.toNamed(

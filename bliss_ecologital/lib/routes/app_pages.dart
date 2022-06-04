@@ -1,3 +1,7 @@
+import 'package:bliss_ecologital/pages/checkout_page/checkout_binding.dart';
+import 'package:bliss_ecologital/pages/checkout_page/checkout_page.dart';
+import 'package:bliss_ecologital/pages/product_category_page/product_category_binding.dart';
+import 'package:bliss_ecologital/pages/product_category_page/product_category_page.dart';
 import 'package:bliss_ecologital/pages/product_page/product_binding.dart';
 import 'package:bliss_ecologital/pages/product_page/product_page.dart';
 import 'package:get/get.dart';
@@ -19,6 +23,18 @@ abstract class AppPages {
       name: Routes.productPage,
       page: () => const ProductPage(),
       binding: ProductBinding(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: Routes.productCategoryPage,
+      page: () => const ProductCategoryPage(),
+      binding: ProductCategoryBinding(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: Routes.checkoutPage,
+      page: () => const CheckoutPage(),
+      binding: CheckoutBinding(),
       transition: Transition.rightToLeft,
     ),
   ];

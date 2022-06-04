@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                           child: CategoryListView(
                             categoryList: _controller.categoryList.value,
                             onTapped: (value) {
-                              print('implement category on tapped.');
+                              _controller.onCategoryTapped(value);
                             },
                           ),
                         ),

@@ -8,11 +8,15 @@ class ProductController extends GetxController {
 
   var isAddedToFavorites = false.obs;
 
+  var isAddedToCart = false.obs;
+
   @override
   void onInit() {
     cartCount.value = 0;
 
     isAddedToFavorites.value = false;
+
+    isAddedToCart.value = false;
 
     super.onInit();
   }
@@ -30,18 +34,28 @@ class ProductController extends GetxController {
 
     isAddedToFavorites.value = false;
 
+    isAddedToCart.value = false;
+
     super.onClose();
   }
 
   void _loadData() {
     try {
+      // get selected product from arguments
       final _productModel = Get.arguments as ProductModel;
 
+      // check the selected product is added to favorites
       final _isAddedToFavorites = Utils.checkFavoriteList(_productModel);
 
       isAddedToFavorites.value = _isAddedToFavorites;
 
-      final _cartCount = Utils.checkCartList();
+      // check the selected product is added to cart
+      final _isAddedToCart = Utils.checkCartList(_productModel);
+
+      isAddedToCart.value = _isAddedToCart;
+
+      // check cart count
+      final _cartCount = Utils.checkCartCount();
 
       cartCount.value = _cartCount;
     } catch (exception) {
@@ -69,9 +83,13 @@ class ProductController extends GetxController {
 
   void handleAddToCart(ProductModel productModel) {
     try {
-      Utils.addToCartList(productModel);
+      isAddedToCart.value
+          ? Utils.removeFromCartList(productModel)
+          : Utils.addToCartList(productModel);
 
-      final _cartCount = Utils.checkCartList();
+      isAddedToCart.value = !isAddedToCart.value;
+
+      final _cartCount = Utils.checkCartCount();
 
       cartCount.value = _cartCount;
     } catch (exception) {

@@ -62,11 +62,14 @@ class _ProductPageState extends State<ProductPage> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         ProductImage(productModel: _productModel),
-        ProductInfo(
-          productModel: _productModel,
-          onAddToCart: () {
-            _controller.handleAddToCart(_productModel);
-          },
+        Obx(
+          () => ProductInfo(
+            productModel: _productModel,
+            addedToCart: _controller.isAddedToCart.value,
+            onAddToCart: () {
+              _controller.handleAddToCart(_productModel);
+            },
+          ),
         ),
       ],
     );

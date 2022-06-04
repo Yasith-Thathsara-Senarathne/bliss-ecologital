@@ -51,7 +51,16 @@ abstract class Utils {
     }
   }
 
-  static int checkCartList() {
+  // check cart list
+  static bool checkCartList(ProductModel productModel) {
+    try {
+      return cartList.contains(productModel) ? true : false;
+    } catch (exception) {
+      return false;
+    }
+  }
+
+  static int checkCartCount() {
     try {
       return cartList.length;
     } catch (exception) {
@@ -63,6 +72,15 @@ abstract class Utils {
   static void addToCartList(ProductModel productModel) {
     try {
       cartList.add(productModel);
+    } catch (exception) {
+      return;
+    }
+  }
+
+  // remove from cart list
+  static void removeFromCartList(ProductModel productModel) {
+    try {
+      cartList.remove(productModel);
     } catch (exception) {
       return;
     }

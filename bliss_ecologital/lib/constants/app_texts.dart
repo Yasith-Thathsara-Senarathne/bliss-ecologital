@@ -22,5 +22,7 @@ abstract class AppTexts {
 
   static const weightNormal = 'Weight';
 
-  static const addToCartNormal = 'Add to Cart';
+  static const addToCartNormal = 'Add To Cart';
+
+  static const removeFromCartNormal = 'Remove From Cart';
 }
