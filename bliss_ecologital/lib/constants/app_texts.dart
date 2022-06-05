@@ -31,4 +31,6 @@ abstract class AppTexts {
   static const addToCartNormal = 'Add To Cart';
 
   static const removeFromCartNormal = 'Remove From Cart';
+
+  static const cartEmptyNormal = 'Your cart is currently empty !';
 }

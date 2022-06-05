@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bliss_ecologital/constants/app_colors.dart';
 import 'package:bliss_ecologital/services/app_data/cart_data_services.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +9,8 @@ import 'package:bliss_ecologital/routes/app_pages.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  HttpOverrides.global = MyHttpOverrides();
 
   // initialize cart services
   CartDataServices.initialize();
@@ -42,5 +46,14 @@ class BlissEcologitalApp extends StatelessWidget {
       getPages: AppPages.routes,
       debugShowCheckedModeBanner: false,
     );
+  }
+}
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
   }
 }

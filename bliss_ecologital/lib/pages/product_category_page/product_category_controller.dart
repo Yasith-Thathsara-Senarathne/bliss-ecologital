@@ -28,7 +28,7 @@ class ProductCategoryController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on product_category_controller _loadData() function. ${exception.toString()}',
       );
       return;
     }
@@ -58,7 +58,7 @@ class ProductCategoryController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on product_category_controller _loadProductCategory() function. ${exception.toString()}',
       );
     } finally {
       productCategoryLoading.value = false;
@@ -74,7 +74,7 @@ class ProductCategoryController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on product_category_controller onProductTapped() function. ${exception.toString()}',
       );
     }
   }

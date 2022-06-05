@@ -55,6 +55,8 @@ class CheckoutController extends GetxController {
     try {
       CartDataServices.removeFromCartList(productModel);
 
+      cartList.value = [];
+
       cartList.value = CartDataServices.shared.list;
 
       total.value = CartDataServices.shared.total;

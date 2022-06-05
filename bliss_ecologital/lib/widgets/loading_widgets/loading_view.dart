@@ -11,6 +11,7 @@ class LoadingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: const [
         CircularProgressIndicator.adaptive(
           backgroundColor: AppColors.nevada,

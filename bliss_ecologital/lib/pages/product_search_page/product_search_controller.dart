@@ -29,7 +29,7 @@ class ProductSearchController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on product_search_controller _loadData() function. ${exception.toString()}',
       );
       return;
     }
@@ -51,7 +51,7 @@ class ProductSearchController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on product_search_controller _loadProductSearch() function. ${exception.toString()}',
       );
     } finally {
       productSearchLoading.value = false;
@@ -83,7 +83,7 @@ class ProductSearchController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on product_search_controller onSeachTextChange() function. ${exception.toString()}',
       );
     } finally {
       productSearchLoading.value = false;
@@ -99,7 +99,7 @@ class ProductSearchController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on product_search_controller onProductTapped() function. ${exception.toString()}',
       );
     }
   }

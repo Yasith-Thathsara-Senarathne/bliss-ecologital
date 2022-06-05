@@ -45,18 +45,22 @@ class ProductController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on product_controller loadData() function. ${exception.toString()}',
       );
     }
   }
 
-  void handleCartTap() {
+  void handleCartTap() async {
     try {
-      Get.toNamed(Routes.checkoutPage);
+      final _ = await Get.toNamed(Routes.checkoutPage);
+
+      // if user remove products added to cart from the checkout page
+      // need to reload status to check whether current product is still in the cart or not
+      loadData();
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on product_controller handleCartTap() function. ${exception.toString()}',
       );
     }
   }
@@ -71,7 +75,7 @@ class ProductController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on product_controller handleFavoriteTap() function. ${exception.toString()}',
       );
     }
   }
@@ -90,7 +94,7 @@ class ProductController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on product_controller handleAddToCart() function. ${exception.toString()}',
       );
     }
   }

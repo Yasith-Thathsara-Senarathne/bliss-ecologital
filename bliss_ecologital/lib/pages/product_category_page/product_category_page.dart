@@ -43,6 +43,7 @@ class _ProductCategoryPageState extends State<ProductCategoryPage> {
 
     final _body = Padding(
       padding: const EdgeInsets.only(
+        top: 10,
         left: 18,
         right: 18,
         // bottom: 20,

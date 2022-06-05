@@ -24,7 +24,6 @@ class ProductInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Get.height * 0.45,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.45),
@@ -39,6 +38,9 @@ class ProductInfo extends StatelessWidget {
         children: [
           ProductSpecs(
             productModel: productModel,
+          ),
+          const SizedBox(
+            height: 40,
           ),
           ButtonWithText(
             title: addedToCart

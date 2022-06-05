@@ -19,7 +19,7 @@ class ProductImage extends StatelessWidget {
         left: 18,
         right: 18,
       ),
-      height: Get.width * 0.8,
+      height: Get.height * 0.4,
       alignment: Alignment.center,
       child: Image.network(
         productModel.image,

@@ -37,7 +37,7 @@ class HomeController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on home_controller _loadData() function. ${exception.toString()}',
       );
       return;
     }
@@ -68,7 +68,7 @@ class HomeController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on home_controller _loadCategories() function. ${exception.toString()}',
       );
     } finally {
       // loading start
@@ -91,7 +91,7 @@ class HomeController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on home_controller _loadPopuloarProducts() function. ${exception.toString()}',
       );
     } finally {
       productLoading.value = false;
@@ -106,7 +106,7 @@ class HomeController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on home_controller onSearchTapped() function. ${exception.toString()}',
       );
     }
   }
@@ -120,7 +120,7 @@ class HomeController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on home_controller onCategoryTapped() function. ${exception.toString()}',
       );
     }
   }
@@ -134,7 +134,7 @@ class HomeController extends GetxController {
     } catch (exception) {
       printError(
         info:
-            'exception on home controller _loadData() function. ${exception.toString()}',
+            'exception on home_controller onProductTapped() function. ${exception.toString()}',
       );
     }
   }
