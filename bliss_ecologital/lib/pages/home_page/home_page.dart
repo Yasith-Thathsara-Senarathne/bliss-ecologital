@@ -21,6 +21,12 @@ class _HomePageState extends State<HomePage> {
   final _controller = Get.put(HomeController());
 
   @override
+  void initState() {
+    _controller.loadData();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final _body = Padding(
       padding: const EdgeInsets.symmetric(
@@ -58,7 +64,15 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 30,
             ),
-            const SearchTextField(),
+            InkWell(
+              onTap: () {
+                _controller.onSearchTapped();
+              },
+              child: SearchTextField(
+                isEnabled: false,
+                onTextChange: (_) {},
+              ),
+            ),
             const SizedBox(
               height: 50,
             ),

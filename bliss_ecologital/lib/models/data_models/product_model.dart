@@ -48,7 +48,15 @@ class ProductModel {
         "image": image,
       };
 
+  String get modelTrim {
+    return model.trim();
+  }
+
   String get priceToString {
     return price.toStringAsFixed(2);
+  }
+
+  String get priceWithCurrency {
+    return 'Rs ${price.toStringAsFixed(2)}';
   }
 }

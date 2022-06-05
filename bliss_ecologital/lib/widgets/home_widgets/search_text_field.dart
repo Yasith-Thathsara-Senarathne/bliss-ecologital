@@ -5,9 +5,12 @@ import 'package:flutter/material.dart';
 class SearchTextField extends StatelessWidget {
   final bool isEnabled;
 
+  final ValueChanged<String> onTextChange;
+
   const SearchTextField({
     Key? key,
     this.isEnabled = false,
+    required this.onTextChange,
   }) : super(key: key);
 
   @override
@@ -70,6 +73,9 @@ class SearchTextField extends StatelessWidget {
               ),
             ),
           ),
+          onChanged: (value) {
+            onTextChange(value);
+          },
         ),
       ),
     );

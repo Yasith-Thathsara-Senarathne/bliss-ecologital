@@ -1,4 +1,5 @@
 import 'package:bliss_ecologital/constants/app_colors.dart';
+import 'package:bliss_ecologital/services/app_data/cart_data_services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
@@ -6,6 +7,9 @@ import 'package:bliss_ecologital/routes/app_pages.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // initialize cart services
+  CartDataServices.initialize();
 
   // set device orientation to portrait up
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(

@@ -1,4 +1,6 @@
 import 'package:bliss_ecologital/models/data_models/product_model.dart';
+import 'package:bliss_ecologital/routes/routes.dart';
+import 'package:bliss_ecologital/services/app_data/cart_data_services.dart';
 import 'package:bliss_ecologital/utilities/utils.dart';
 import 'package:get/get.dart';
 
@@ -21,25 +23,7 @@ class ProductController extends GetxController {
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    _loadData();
-
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    cartCount.value = 0;
-
-    isAddedToFavorites.value = false;
-
-    isAddedToCart.value = false;
-
-    super.onClose();
-  }
-
-  void _loadData() {
+  void loadData() {
     try {
       // get selected product from arguments
       final _productModel = Get.arguments as ProductModel;
@@ -50,14 +34,25 @@ class ProductController extends GetxController {
       isAddedToFavorites.value = _isAddedToFavorites;
 
       // check the selected product is added to cart
-      final _isAddedToCart = Utils.checkCartList(_productModel);
+      final _isAddedToCart = CartDataServices.checkCartList(_productModel);
 
       isAddedToCart.value = _isAddedToCart;
 
       // check cart count
-      final _cartCount = Utils.checkCartCount();
+      final _cartCount = CartDataServices.shared.count;
 
       cartCount.value = _cartCount;
+    } catch (exception) {
+      printError(
+        info:
+            'exception on home controller _loadData() function. ${exception.toString()}',
+      );
+    }
+  }
+
+  void handleCartTap() {
+    try {
+      Get.toNamed(Routes.checkoutPage);
     } catch (exception) {
       printError(
         info:
@@ -84,12 +79,12 @@ class ProductController extends GetxController {
   void handleAddToCart(ProductModel productModel) {
     try {
       isAddedToCart.value
-          ? Utils.removeFromCartList(productModel)
-          : Utils.addToCartList(productModel);
+          ? CartDataServices.removeFromCartList(productModel)
+          : CartDataServices.addToCartList(productModel);
 
       isAddedToCart.value = !isAddedToCart.value;
 
-      final _cartCount = Utils.checkCartCount();
+      final _cartCount = CartDataServices.shared.count;
 
       cartCount.value = _cartCount;
     } catch (exception) {

@@ -20,7 +20,7 @@ class ProductSpecs extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            productModel.model.trim(),
+            productModel.modelTrim,
             style: const TextStyle(
               color: AppColors.nevada,
               fontSize: AppFontSizes.largeTitle,

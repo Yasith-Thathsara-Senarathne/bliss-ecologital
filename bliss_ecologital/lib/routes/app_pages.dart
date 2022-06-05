@@ -4,6 +4,8 @@ import 'package:bliss_ecologital/pages/product_category_page/product_category_bi
 import 'package:bliss_ecologital/pages/product_category_page/product_category_page.dart';
 import 'package:bliss_ecologital/pages/product_page/product_binding.dart';
 import 'package:bliss_ecologital/pages/product_page/product_page.dart';
+import 'package:bliss_ecologital/pages/product_search_page/product_search_binding.dart';
+import 'package:bliss_ecologital/pages/product_search_page/product_search_page.dart';
 import 'package:get/get.dart';
 import 'package:bliss_ecologital/pages/home_page/home_binding.dart';
 import 'package:bliss_ecologital/pages/home_page/home_page.dart';
@@ -18,6 +20,12 @@ abstract class AppPages {
       page: () => const HomePage(),
       binding: HomeBinding(),
       transition: Transition.noTransition,
+    ),
+    GetPage(
+      name: Routes.productSearchPage,
+      page: () => const ProductSearchPage(),
+      binding: ProductSearchBinding(),
+      transition: Transition.rightToLeft,
     ),
     GetPage(
       name: Routes.productPage,

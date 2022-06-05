@@ -22,6 +22,12 @@ class _ProductPageState extends State<ProductPage> {
   final _productModel = Get.arguments as ProductModel;
 
   @override
+  void initState() {
+    _controller.loadData();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final _appBar = AppBar(
       backgroundColor: _productModel.category.detailBGColor,
@@ -48,7 +54,9 @@ class _ProductPageState extends State<ProductPage> {
         Obx(
           () => CartButton(
             cartCount: _controller.cartCount.value,
-            onTapped: () {},
+            onTapped: () {
+              _controller.handleCartTap();
+            },
           ),
         ),
         const SizedBox(

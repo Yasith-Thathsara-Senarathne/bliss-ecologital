@@ -31,7 +31,7 @@ class PopularListTile extends StatelessWidget {
           Row(
             children: [
               Text(
-                productModel.model.trim(),
+                productModel.modelTrim,
                 style: const TextStyle(
                   color: AppColors.nevada,
                   fontSize: AppFontSizes.smallTitle,

@@ -12,6 +12,12 @@ abstract class AppTexts {
 
   static const mostPopularNormal = 'Most Popular';
 
+  static const searchNormal = 'Search';
+
+  static const checkoutNormal = 'Check out';
+
+  static const totalNormal = 'Total';
+
   static const loadingNormal = 'Loading';
 
   static const brandNormal = 'Brand';

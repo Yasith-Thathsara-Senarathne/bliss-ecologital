@@ -25,25 +25,7 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    _loadData();
-
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    categoryList.clear();
-
-    productList.clear();
-
-    categoryLoading.value = false;
-
-    super.onClose();
-  }
-
-  void _loadData() {
+  void loadData() {
     try {
       // load categories
       _loadCategories();
@@ -116,13 +98,31 @@ class HomeController extends GetxController {
     }
   }
 
+  void onSearchTapped() {
+    try {
+      Get.toNamed(
+        Routes.productSearchPage,
+      );
+    } catch (exception) {
+      printError(
+        info:
+            'exception on home controller _loadData() function. ${exception.toString()}',
+      );
+    }
+  }
+
   void onCategoryTapped(CategoryUIModel categoryUIModel) {
     try {
       Get.toNamed(
         Routes.productCategoryPage,
         arguments: categoryUIModel,
       );
-    } catch (exception) {}
+    } catch (exception) {
+      printError(
+        info:
+            'exception on home controller _loadData() function. ${exception.toString()}',
+      );
+    }
   }
 
   void onProductTapped(ProductModel productModel) {
@@ -131,6 +131,11 @@ class HomeController extends GetxController {
         Routes.productPage,
         arguments: productModel,
       );
-    } catch (exception) {}
+    } catch (exception) {
+      printError(
+        info:
+            'exception on home controller _loadData() function. ${exception.toString()}',
+      );
+    }
   }
 }
